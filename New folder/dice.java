@@ -41,7 +41,7 @@ public class dice{
 				    System.out.print("Enter total type of dices.");
 				    int types_of_multi_dice = input.nextInt();
 					multi_type = enter_info_for_multi_dice(types_of_multi_dice, multi_type);
-					multi_type = roll_multi_dice(multi_type);
+					multi_type = roll_multi_dice(types_of_multi_dice,multi_type);
 					break;
 				default:
 					break;
@@ -93,12 +93,12 @@ public class dice{
 	    }
 	    return multi_type;
 	}
-	public static void roll_multi_dice(int qty, int[][] multi_type){
+	public static int[][] roll_multi_dice(int qty, int[][] multi_type){
 	    Random rand01 = new Random();
 	    int type = qty;
 	    for (int i = 0 ; i<= type-1;i++ ){   // total type of dice
 	        for (int j = 0; j<= multi_type[i][0] -2 ; j++){  // total roll of dice
-	            multi_type[i][3+j] = rand01.nextInt((face-1)+1)+1;
+	            multi_type[i][3+j] = rand01.nextInt((multi_type[i][1]-1)+1)+1;
 	        }
 	    }
 	    return multi_type;
@@ -112,8 +112,8 @@ public class dice{
 	        }
             
     }
-	public static void clear_multi_dice(){
+	/*public static void clear_multi_dice(){
 	   
-	}
-
+	}*/
+    }
 }
